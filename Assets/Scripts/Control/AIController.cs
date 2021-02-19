@@ -146,11 +146,11 @@ namespace RPG.Control
             RaycastHit[] nearbyHits = Physics.SphereCastAll(transform.position, nearbyAggroDistance, Vector3.up, 0);
             foreach (RaycastHit hit in nearbyHits)
             {
-                print(hit.transform.name);
+                //print(hit.transform.name);
                 AIController potentialEnemy = hit.collider.GetComponent<AIController>();
                 if (potentialEnemy != null)
                 {
-                    print("Found enemy");
+                    //print("Found enemy");
                     potentialEnemy.Aggrevate();
                 }
             }

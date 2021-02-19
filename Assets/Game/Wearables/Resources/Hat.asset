@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 2d134d79-36a0-4b6e-8512-abd3cd239c06
   displayName: Basic Hat
   description: 
-  icon: {fileID: 21300000, guid: 7c4272045db356d4191801bf4343dbe3, type: 3}
+  icon: {fileID: 21300000, guid: c1b61b3a91732a747a8496fc75a13fe2, type: 3}
   pickup: {fileID: 7281245860685201897, guid: f0266064b51b8a249ae55be5ed86bc06, type: 3}
   stackable: 0
   allowedEquipLocation: 0

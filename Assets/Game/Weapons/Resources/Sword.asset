@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2591c982fc81e940845bedeabeb30af, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
+  itemID: 0d185f59-a89a-4981-b131-d5046ccb688e
+  displayName: Simple Sword
+  description: Basic steel sword
+  icon: {fileID: 21300000, guid: d19901b0ee3c38743a7d383bd484b0b5, type: 3}
+  pickup: {fileID: 4461499107572428052, guid: fdfb68bd34d88af4fbb8a679645d8598, type: 3}
+  stackable: 0
+  allowedEquipLocation: 5
+  additiveModifiers:
+  - stat: 0
+    value: 50
+  percentageModifiers: []
   animatorOverride: {fileID: 22100000, guid: 6abe8133a41100b4695842c4b61fdb80, type: 2}
   equippedPrefab: {fileID: 8221929861739420006, guid: c77f288c2f5ccac44bbf4e7d1eb1dee0,
     type: 3}
-  weaponDamage: 2
+  weaponDamage: 3
   percentageBonus: 20
   weaponRange: 2
   isRightHanded: 1
