@@ -157,10 +157,9 @@ namespace RPG.Control
         }
 
         private bool IsAggrevated()
-        {
-           
+        {           
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            print(distanceToPlayer);
+            //print(distanceToPlayer);
             return distanceToPlayer < chaseDistance || timeSinceAggraveted < aggroCooldownTime;
         }
 
