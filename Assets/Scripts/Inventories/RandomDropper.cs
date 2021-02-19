@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Stats;
 
 namespace RPG.Inventories
 {
@@ -10,7 +11,7 @@ namespace RPG.Inventories
     {
         [Tooltip("Scatter radius")]
         [SerializeField] float scatterRadius = 1;
-        [SerializeField] InventoryItem[] dropOptions;
+        [SerializeField] DropLibrary dropOptions;
 
         const int ATTEMPTS = 30;
 
@@ -30,21 +31,12 @@ namespace RPG.Inventories
 
         public void RandomDrop()
         {
-            int numberOfDrops = Random.Range(1, 4);
-            for (int i = 0; i < numberOfDrops; i++)
+            BaseStats baseStats = GetComponent<BaseStats>();
+            IEnumerable<DropLibrary.Dropped> drops = dropOptions.GetRandomDrops(baseStats.GetLevel());
+            foreach (DropLibrary.Dropped drop in drops)
             {
-                int choiceIndex = Random.Range(0, dropOptions.Length);
-                InventoryItem item = dropOptions[choiceIndex];
-                if (item.IsStackable())
-                {
-                    int number = Random.Range(1, 5);
-                    DropItem(dropOptions[choiceIndex], number);
-                }
-                else
-                {
-                    DropItem(dropOptions[choiceIndex]);
-                }               
-            }           
+                DropItem(drop.item, drop.number);
+            }
         }
     }
 }

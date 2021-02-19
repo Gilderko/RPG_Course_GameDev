@@ -27,12 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scatterRadius: 1
-  dropOptions:
-  - {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}
-  - {fileID: 11400000, guid: e24424a2c9b854d44bdca41b0ac2ed0c, type: 2}
-  - {fileID: 11400000, guid: c2a2bd9b5a47ec64daeb6cdb3c2f18ee, type: 2}
-  - {fileID: 11400000, guid: 0071fb8ea1b0df04baa6fd317f52b9a2, type: 2}
-  - {fileID: 11400000, guid: e03fcabacaf660d489610f3c4b811a03, type: 2}
+  dropOptions: {fileID: 11400000, guid: 7405fc517e986934fa1e07bd8f7b8f33, type: 2}
 --- !u!114 &983642264934612947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,8 +41,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
-  suspicionTime: 5
-  aggroCooldownTime: 4
   nearbyAggroDistance: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
