@@ -54,7 +54,7 @@ namespace RPG.SceneManagement
 
 
             savingWrapper.Load();
-            
+            print("Loading");
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
 
