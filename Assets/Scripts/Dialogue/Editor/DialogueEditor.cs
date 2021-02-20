@@ -8,30 +8,58 @@ namespace RPG.Dialogue.Editor
 {
     public class DialogueEditor : EditorWindow
     {
-        [MenuItem("Window/Dialogue Editor")] // Callback in editor
+        Dialogue selectedDialogue = null;
+
+        [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
         {
             GetWindow(typeof(DialogueEditor), false, "Dialogue Editor");
         }
 
-        [OnOpenAssetAttribute(1)] // This Function should be called when we try to open any asset and the number defines the order
+        [OnOpenAsset(1)] // This Function should be called when we try to open any asset and the number defines the order
         public static bool OnOpenAsset(int instanceID, int line) 
         {
             Dialogue caller = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;
-            if (caller == null) { return false; }
-
-            ShowEditorWindow();
-            return true;
+            if (caller != null)
+            {
+                ShowEditorWindow();
+                return true;
+            }
+            return false;
         }
 
-        private void OnGUI() // Hapens while over a GUI triggered by clicking for example
+        private void OnEnable()
         {
-            EditorGUILayout.LabelField("Hello World");
-            EditorGUILayout.LabelField("Hello there");
-            EditorGUILayout.LabelField("Hello ou");
-            EditorGUILayout.LabelField("Hello");
+            Selection.selectionChanged += OnChangeDialogue;
         }
 
+        /*private void OnDisable()
+        {
+            Selection.selectionChanged -= OnChangeDialogue;
+        }*/
+
+        private void OnChangeDialogue()
+        {
+            Dialogue selectedObject = Selection.activeObject as Dialogue;
+            if (selectedObject != null)
+            {
+                Debug.Log("New Dialogue");
+                selectedDialogue = selectedObject;
+                Repaint();
+            }            
+        }
+
+        private void OnGUI() // Hapens while over a GUI triggered by clicking for example (Name callback)
+        {
+            if (selectedDialogue == null)
+            {
+                EditorGUILayout.LabelField("No dialogue selected.");
+            }
+            else
+            {
+                EditorGUILayout.LabelField(selectedDialogue.name);
+            }
+        }
     }
 }
 
