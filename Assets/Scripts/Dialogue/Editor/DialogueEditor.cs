@@ -24,6 +24,14 @@ namespace RPG.Dialogue.Editor
             return true;
         }
 
+        private void OnGUI() // Hapens while over a GUI triggered by clicking for example
+        {
+            EditorGUILayout.LabelField("Hello World");
+            EditorGUILayout.LabelField("Hello there");
+            EditorGUILayout.LabelField("Hello ou");
+            EditorGUILayout.LabelField("Hello");
+        }
+
     }
 }
 
