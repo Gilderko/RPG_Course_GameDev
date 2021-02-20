@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be684b962480a8478eaafc6021d29a8, type: 3}
   m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - uniqueID: 
+    text: Hello
+    dialogueChildren: []
+  - uniqueID: 
+    text: There
+    dialogueChildren: []
+  - uniqueID: 
+    text: General Kenobi
+    dialogueChildren: []

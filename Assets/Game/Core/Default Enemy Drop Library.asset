@@ -53,7 +53,7 @@ MonoBehaviour:
     minNumber: 
     maxNumber: 
   dropChancePercentage:
-  - 35
-  - 50
+  - 100
+  - 100
   minDrops: 0100000001000000
-  maxDrops: 0300000005000000
+  maxDrops: 0400000006000000

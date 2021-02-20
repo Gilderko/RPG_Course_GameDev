@@ -29,14 +29,14 @@ namespace RPG.Dialogue.Editor
         }
 
         private void OnEnable()
-        {
+        {            
             Selection.selectionChanged += OnChangeDialogue;
         }
 
-        /*private void OnDisable()
+        private void OnDisable()
         {
             Selection.selectionChanged -= OnChangeDialogue;
-        }*/
+        }
 
         private void OnChangeDialogue()
         {
@@ -44,20 +44,24 @@ namespace RPG.Dialogue.Editor
             if (selectedObject != null)
             {
                 Debug.Log("New Dialogue");
-                selectedDialogue = selectedObject;
-                Repaint();
+                selectedDialogue = selectedObject;                
             }            
         }
 
         private void OnGUI() // Hapens while over a GUI triggered by clicking for example (Name callback)
         {
+            Debug.Log("on gui");
+            OnChangeDialogue();
             if (selectedDialogue == null)
             {
                 EditorGUILayout.LabelField("No dialogue selected.");
             }
             else
             {
-                EditorGUILayout.LabelField(selectedDialogue.name);
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    EditorGUILayout.LabelField(node.text);
+                }
             }
         }
     }
