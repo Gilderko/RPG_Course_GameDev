@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -8,5 +9,7 @@ namespace RPG.Dialogue
     public class Dialogue : ScriptableObject
     {
         [SerializeField] DialogueNode[] nodes;
+
+        
     }
 }
