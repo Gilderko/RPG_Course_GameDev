@@ -24,12 +24,7 @@ namespace RPG.Dialogue
         public IEnumerable<DialogueNode> GetAllNodes()
         {
             return nodes;
-        }
-
-        public DialogueNode GetRootNode()
-        {
-            return nodes[0];
-        }
+        }        
     }
 }
 

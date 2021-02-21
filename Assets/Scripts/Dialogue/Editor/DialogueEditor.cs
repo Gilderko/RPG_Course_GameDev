@@ -11,7 +11,9 @@ namespace RPG.Dialogue.Editor
     {
         Dialogue selectedDialogue = null;
         GUIStyle nodeStyle;
-        bool dragging = false;
+        
+        DialogueNode dragginNode = null;
+        Vector2 mouseDragOffset = new Vector2();
 
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
@@ -76,21 +78,24 @@ namespace RPG.Dialogue.Editor
 
         private void ProcessEvents()
         {
-            EditorGUI.BeginChangeCheck();
-            if (Event.current.type == EventType.MouseDown && !dragging)
+            EditorGUI.BeginChangeCheck();            
+            if (Event.current.type == EventType.MouseDown && (dragginNode == null))
             {
-                dragging = true;                
+                dragginNode = GetOverMouseNode(Event.current.mousePosition); 
+                if (dragginNode != null)
+                {
+                    mouseDragOffset = Event.current.mousePosition - dragginNode.inEditorPosition.position;
+                }
             }
-            else if (Event.current.type == EventType.MouseDrag && dragging)
+            else if (Event.current.type == EventType.MouseDrag && dragginNode != null)
             {
                 Undo.RecordObject(selectedDialogue, "Move Dialog");
-                selectedDialogue.GetRootNode().inEditorPosition.position = Event.current.mousePosition;
+                dragginNode.inEditorPosition.position = Event.current.mousePosition - mouseDragOffset;
                 GUI.changed = true; // This Triggers OnGUI 
             }
-            else if (Event.current.type == EventType.MouseUp && dragging)
+            else if (Event.current.type == EventType.MouseUp && dragginNode != null)
             {
-                dragging = false;
-                selectedDialogue.GetRootNode().inEditorPosition.position = Event.current.mousePosition;                
+                dragginNode = null;                                
             }            
         }
 
@@ -110,6 +115,19 @@ namespace RPG.Dialogue.Editor
                 node.uniqueID = newID;
             }
             GUILayout.EndArea();
+        }
+
+        public DialogueNode GetOverMouseNode(Vector2 mousePosition)
+        {
+            DialogueNode foundNode = null;
+            foreach (DialogueNode dialogueNode in selectedDialogue.GetAllNodes())
+            {
+                if (dialogueNode.inEditorPosition.Contains(mousePosition))
+                {
+                    foundNode = dialogueNode;
+                }
+            }
+            return foundNode;
         }
     }
 }
