@@ -10,5 +10,6 @@ namespace RPG.Dialogue
         public string uniqueID;
         public string text;
         public string[] dialogueChildren;
+        public Rect inEditorPosition = new Rect(10,10,100,100);
     }
 }

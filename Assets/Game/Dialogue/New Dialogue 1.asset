@@ -13,12 +13,30 @@ MonoBehaviour:
   m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: 
+  - uniqueID: 001
     text: Hello
     dialogueChildren: []
-  - uniqueID: 
+    inEditorPosition:
+      serializedVersion: 2
+      x: 10
+      y: 10
+      width: 200
+      height: 100
+  - uniqueID: 002
     text: There
     dialogueChildren: []
-  - uniqueID: 
+    inEditorPosition:
+      serializedVersion: 2
+      x: 10
+      y: 110
+      width: 200
+      height: 100
+  - uniqueID: 003
     text: General Kenobis
     dialogueChildren: []
+    inEditorPosition:
+      serializedVersion: 2
+      x: 10
+      y: 210
+      width: 200
+      height: 100
