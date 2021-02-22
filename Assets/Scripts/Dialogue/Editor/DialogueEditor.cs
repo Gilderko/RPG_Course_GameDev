@@ -71,10 +71,11 @@ namespace RPG.Dialogue.Editor
                 ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    OnGUINode(node);
+                    DrawNode(node);
+                    DrawConnections(node);
                 }
             }            
-        }
+        }        
 
         private void ProcessEvents()
         {
@@ -99,7 +100,7 @@ namespace RPG.Dialogue.Editor
             }            
         }
 
-        private void OnGUINode(DialogueNode node)
+        private void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(node.inEditorPosition,nodeStyle); // All the field bellow will go inside the area
             EditorGUI.BeginChangeCheck();
@@ -113,14 +114,20 @@ namespace RPG.Dialogue.Editor
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
                 node.text = newText;
                 node.uniqueID = newID;
-            }
-
-            foreach (DialogueNode childNode in selectedDialogue.GetAllChildren(node))
-            {
-                EditorGUILayout.LabelField(childNode.text);
-            }           
-
+            } 
             GUILayout.EndArea();
+        }
+
+        private void DrawConnections(DialogueNode parentNode)
+        {
+            Vector3 startPosition = new Vector2(parentNode.inEditorPosition.xMax,parentNode.inEditorPosition.center.y);
+            foreach (DialogueNode childNode in selectedDialogue.GetAllChildren(parentNode))
+            {
+                Vector3 endPosition = new Vector2(childNode.inEditorPosition.xMin, childNode.inEditorPosition.center.y);
+                Vector3 tangetOffset = new Vector2(100, 0);
+
+                Handles.DrawBezier(startPosition,endPosition,startPosition + tangetOffset, endPosition - tangetOffset,Color.magenta,null,4f);
+            }
         }
 
         public DialogueNode GetOverMouseNode(Vector2 mousePosition)
