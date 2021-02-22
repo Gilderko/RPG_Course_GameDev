@@ -18,6 +18,8 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] DialogueNode deletingNode = null; // Used as a signal for deleting a new node 
         [NonSerialized] DialogueNode linkingParentNode = null; // -||- linking node
 
+        Vector2 scrollPosition;
+
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
         {
@@ -72,6 +74,11 @@ namespace RPG.Dialogue.Editor
             else
             {
                 ProcessEvents();
+
+                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition); // Only for auto layed out components
+
+                GUILayoutUtility.GetRect(4000, 4000);
+
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
                     DrawNode(node);                    
@@ -80,6 +87,8 @@ namespace RPG.Dialogue.Editor
                 {
                     DrawConnections(node);
                 }
+                EditorGUILayout.EndScrollView();
+
                 if (creatingNode != null)
                 {
                     Undo.RecordObject(selectedDialogue, "Added Dialogue Node");
@@ -95,12 +104,12 @@ namespace RPG.Dialogue.Editor
             }            
         }        
 
-        private void ProcessEvents()
+        private void ProcessEvents() // Used for Draging nodes around
         {
             EditorGUI.BeginChangeCheck();            
             if (Event.current.type == EventType.MouseDown && (dragginNode == null))
             {
-                dragginNode = GetOverMouseNode(Event.current.mousePosition); 
+                dragginNode = GetOverMouseNode(Event.current.mousePosition + scrollPosition); 
                 if (dragginNode != null)
                 {
                     mouseDragOffset = Event.current.mousePosition - dragginNode.inEditorPosition.position;
@@ -120,7 +129,7 @@ namespace RPG.Dialogue.Editor
 
         private void DrawNode(DialogueNode currentNode)
         {
-            GUILayout.BeginArea(currentNode.inEditorPosition, nodeStyle); // All the field bellow will go inside the area
+            GUILayout.BeginArea(currentNode.inEditorPosition, nodeStyle); // All the field bellow will go inside the area, not auto layed out
             EditorGUI.BeginChangeCheck();
 
             string newText = EditorGUILayout.TextField(currentNode.text); // OnGUI gets called twice, first return text inside and second changes it
