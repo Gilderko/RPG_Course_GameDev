@@ -13,8 +13,10 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] GUIStyle nodeStyle;
         [NonSerialized] DialogueNode dragginNode = null;
         [NonSerialized] Vector2 mouseDragOffset = new Vector2();
+
         [NonSerialized] DialogueNode creatingNode = null; // Used as a signal for creating a new node 
         [NonSerialized] DialogueNode deletingNode = null; // Used as a signal for deleting a new node 
+        [NonSerialized] DialogueNode linkingParentNode = null; // -||- linking node
 
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
@@ -118,29 +120,66 @@ namespace RPG.Dialogue.Editor
 
         private void DrawNode(DialogueNode currentNode)
         {
-            GUILayout.BeginArea(currentNode.inEditorPosition,nodeStyle); // All the field bellow will go inside the area
+            GUILayout.BeginArea(currentNode.inEditorPosition, nodeStyle); // All the field bellow will go inside the area
             EditorGUI.BeginChangeCheck();
-            
+
             string newText = EditorGUILayout.TextField(currentNode.text); // OnGUI gets called twice, first return text inside and second changes it
 
             if (EditorGUI.EndChangeCheck()) // Return true if something changed what is encompassed but BeginChangeCheck
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
-                currentNode.text = newText;                
+                currentNode.text = newText;
             }
 
             GUILayout.BeginHorizontal(); // Start area which is layed Horizontaly
             if (GUILayout.Button("Create Node"))
             {
-                creatingNode = currentNode;                
-            }
+                creatingNode = currentNode;
+            }            
             if (GUILayout.Button("Delete Node"))
             {
                 deletingNode = currentNode;
             }
             GUILayout.EndHorizontal();
+            DrawLinkButton(currentNode);
 
             GUILayout.EndArea();
+        }
+
+        private void DrawLinkButton(DialogueNode currentNode)
+        {
+            if (linkingParentNode == null)
+            {
+                if (GUILayout.Button("Link Node"))
+                {
+                    linkingParentNode = currentNode;
+                }
+            }
+            else if (linkingParentNode == currentNode)
+            {
+                if (GUILayout.Button("Cancel Linking"))
+                {
+                    linkingParentNode = null;
+                }
+            }
+            else if (linkingParentNode.dialogueChildren.Contains(currentNode.uniqueID))
+            {
+                if (GUILayout.Button("Remove Child"))
+                {
+                    Undo.RecordObject(selectedDialogue, "Add Dialogue Link");
+                    linkingParentNode.dialogueChildren.Remove(currentNode.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("Add Child"))
+                {
+                    Undo.RecordObject(selectedDialogue, "Add Dialogue Link");
+                    linkingParentNode.dialogueChildren.Add(currentNode.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
         }
 
         private void DrawConnections(DialogueNode parentNode)
