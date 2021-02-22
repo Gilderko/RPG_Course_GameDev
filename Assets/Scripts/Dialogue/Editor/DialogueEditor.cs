@@ -14,6 +14,7 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] DialogueNode dragginNode = null;
         [NonSerialized] Vector2 mouseDragOffset = new Vector2();
         [NonSerialized] DialogueNode creatingNode = null; // Used as a signal for creating a new node 
+        [NonSerialized] DialogueNode deletingNode = null; // Used as a signal for deleting a new node 
 
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
@@ -83,6 +84,12 @@ namespace RPG.Dialogue.Editor
                     selectedDialogue.CreateNode(creatingNode);
                     creatingNode = null;
                 }
+                if (deletingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Removed Dialogue Node");
+                    selectedDialogue.DeleteNode(deletingNode);
+                    deletingNode = null;
+                }
             }            
         }        
 
@@ -120,12 +127,18 @@ namespace RPG.Dialogue.Editor
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
                 currentNode.text = newText;                
-            } 
+            }
 
-            if (GUILayout.Button("new child node"))
+            GUILayout.BeginHorizontal(); // Start area which is layed Horizontaly
+            if (GUILayout.Button("Create Node"))
             {
                 creatingNode = currentNode;                
             }
+            if (GUILayout.Button("Delete Node"))
+            {
+                deletingNode = currentNode;
+            }
+            GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
         }
