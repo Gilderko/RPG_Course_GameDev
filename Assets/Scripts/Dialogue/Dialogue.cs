@@ -16,10 +16,9 @@ namespace RPG.Dialogue
         private void Awake() // When ScriptableObject is Loaded
         {
             if (nodes.Count == 0)
-            {
-                Debug.Log("Loading Dialogue");
-                DialogueNode defaultNode = new DialogueNode();
-                nodes.Add(defaultNode);
+            {                
+                DialogueNode rootNode = new DialogueNode();                
+                nodes.Add(rootNode);
             }
         }
 #endif
@@ -44,6 +43,14 @@ namespace RPG.Dialogue
                 if (!lookUpNodesCache.ContainsKey(childID)) { yield return null; }
                 yield return lookUpNodesCache[childID];
             }
+        }
+
+        public void CreateNode(DialogueNode parentNode)
+        {
+            DialogueNode newChildNode = new DialogueNode();            
+            parentNode.dialogueChildren.Add(newChildNode.uniqueID);
+            nodes.Add(newChildNode);
+            OnValidate();
         }
     }
 }

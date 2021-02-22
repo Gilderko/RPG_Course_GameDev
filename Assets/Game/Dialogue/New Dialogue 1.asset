@@ -17,27 +17,48 @@ MonoBehaviour:
     text: Hello
     dialogueChildren:
     - 002
+    - 003
     inEditorPosition:
       serializedVersion: 2
-      x: 19
-      y: 98
+      x: 183
+      y: 207
       width: 200
-      height: 100
+      height: 250
   - uniqueID: 002
     text: There
     dialogueChildren: []
     inEditorPosition:
       serializedVersion: 2
-      x: 257
-      y: 244
+      x: 643
+      y: 532
       width: 200
       height: 100
   - uniqueID: 003
     text: General Kenobis
+    dialogueChildren:
+    - 2df96aa8-0181-4904-9cb7-499a4fb6f21f
+    - d7349bca-64e3-4649-8d97-17afd8b38849
+    inEditorPosition:
+      serializedVersion: 2
+      x: 660
+      y: 152
+      width: 200
+      height: 100
+  - uniqueID: 2df96aa8-0181-4904-9cb7-499a4fb6f21f
+    text: 
     dialogueChildren: []
     inEditorPosition:
       serializedVersion: 2
-      x: 338
-      y: 29
-      width: 200
+      x: 972
+      y: 170
+      width: 100
       height: 100
+  - uniqueID: d7349bca-64e3-4649-8d97-17afd8b38849
+    text: HeyThereAgain
+    dialogueChildren: []
+    inEditorPosition:
+      serializedVersion: 2
+      x: 975
+      y: 312
+      width: 200
+      height: 200

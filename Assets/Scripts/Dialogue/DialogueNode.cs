@@ -9,7 +9,12 @@ namespace RPG.Dialogue
     {
         public string uniqueID;
         public string text;
-        public string[] dialogueChildren;
-        public Rect inEditorPosition = new Rect(10,10,100,100);
+        public List<string> dialogueChildren = new List<string>();
+        public Rect inEditorPosition = new Rect(10,10,200,200);
+
+        public DialogueNode()
+        {
+            uniqueID = System.Guid.NewGuid().ToString();
+        }
     }
 }

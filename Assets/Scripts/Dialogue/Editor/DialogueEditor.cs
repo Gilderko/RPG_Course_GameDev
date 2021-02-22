@@ -10,10 +10,10 @@ namespace RPG.Dialogue.Editor
     public class DialogueEditor : EditorWindow
     {
         Dialogue selectedDialogue = null;
-        GUIStyle nodeStyle;
-        
-        DialogueNode dragginNode = null;
-        Vector2 mouseDragOffset = new Vector2();
+        [NonSerialized] GUIStyle nodeStyle;
+        [NonSerialized] DialogueNode dragginNode = null;
+        [NonSerialized] Vector2 mouseDragOffset = new Vector2();
+        [NonSerialized] DialogueNode creatingNode = null; // Used as a signal for creating a new node 
 
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
@@ -71,8 +71,17 @@ namespace RPG.Dialogue.Editor
                 ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    DrawNode(node);
+                    DrawNode(node);                    
+                }
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
                     DrawConnections(node);
+                }
+                if (creatingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Added Dialogue Node");
+                    selectedDialogue.CreateNode(creatingNode);
+                    creatingNode = null;
                 }
             }            
         }        
@@ -100,21 +109,24 @@ namespace RPG.Dialogue.Editor
             }            
         }
 
-        private void DrawNode(DialogueNode node)
+        private void DrawNode(DialogueNode currentNode)
         {
-            GUILayout.BeginArea(node.inEditorPosition,nodeStyle); // All the field bellow will go inside the area
+            GUILayout.BeginArea(currentNode.inEditorPosition,nodeStyle); // All the field bellow will go inside the area
             EditorGUI.BeginChangeCheck();
-
-            EditorGUILayout.LabelField("Node:",EditorStyles.whiteLabel);
-            string newText = EditorGUILayout.TextField(node.text); // OnGUI gets called twice, first return text inside and second changes it
-            string newID = EditorGUILayout.TextField(node.uniqueID);
+            
+            string newText = EditorGUILayout.TextField(currentNode.text); // OnGUI gets called twice, first return text inside and second changes it
 
             if (EditorGUI.EndChangeCheck()) // Return true if something changed what is encompassed but BeginChangeCheck
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
-                node.text = newText;
-                node.uniqueID = newID;
+                currentNode.text = newText;                
             } 
+
+            if (GUILayout.Button("new child node"))
+            {
+                creatingNode = currentNode;                
+            }
+
             GUILayout.EndArea();
         }
 
