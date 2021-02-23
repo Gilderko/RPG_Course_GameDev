@@ -10,6 +10,9 @@ namespace RPG.Dialogue
     public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField]
+        Vector2 newNodeOffset = new Vector2(250, 0);
+
+        [SerializeField]
         List<DialogueNode> nodes = new List<DialogueNode>();
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
@@ -47,7 +50,7 @@ namespace RPG.Dialogue
 #if UNITY_EDITOR
         public void CreateNode(DialogueNode parent)
         {
-            DialogueNode newNode = MakeNode(parent);
+            DialogueNode newNode = MakeNode(parent);            
             Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
             Undo.RecordObject(this, "Added Dialogue Node");
             AddNode(newNode);
@@ -76,7 +79,7 @@ namespace RPG.Dialogue
             OnValidate();
         }
 
-        private static DialogueNode MakeNode(DialogueNode parent)
+        private DialogueNode MakeNode(DialogueNode parent)
         {
             DialogueNode newNode = CreateInstance<DialogueNode>();
             newNode.name = Guid.NewGuid().ToString();
@@ -84,8 +87,9 @@ namespace RPG.Dialogue
             if (parent != null)
             {
                 parent.AddChild(newNode.name);
+                newNode.SetPlayerSpeaking(!parent.IsPlayerSpeaking());
+                newNode.SetPosition(parent.GetRect().position + newNodeOffset);
             }
-
             return newNode;
         }
 #endif
