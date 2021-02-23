@@ -15,10 +15,30 @@ MonoBehaviour:
   nodes:
   - uniqueID: 11f91988-e613-4e3e-9b1e-15e71107c49a
     text: 
+    dialogueChildren:
+    - bbcb4919-a6ec-4288-9536-c5f9e06d6275
+    - 05a90f54-3901-4c4a-a28a-7c9def934e2e
+    inEditorPosition:
+      serializedVersion: 2
+      x: 62
+      y: 312
+      width: 200
+      height: 200
+  - uniqueID: bbcb4919-a6ec-4288-9536-c5f9e06d6275
+    text: 
     dialogueChildren: []
     inEditorPosition:
       serializedVersion: 2
-      x: 10
-      y: 10
+      x: 473
+      y: 533
+      width: 200
+      height: 200
+  - uniqueID: 05a90f54-3901-4c4a-a28a-7c9def934e2e
+    text: 
+    dialogueChildren: []
+    inEditorPosition:
+      serializedVersion: 2
+      x: 480
+      y: 196
       width: 200
       height: 200
