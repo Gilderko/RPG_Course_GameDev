@@ -1,20 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Dialogue
 {
-    [System.Serializable]
-    public class DialogueNode
+    public class DialogueNode : ScriptableObject
     {
-        public string uniqueID;
-        public string text;
-        public List<string> dialogueChildren = new List<string>();
-        public Rect inEditorPosition = new Rect(10,10,200,200);
+        [SerializeField]
+        string text;
+        [SerializeField]
+        List<string> children = new List<string>();
+        [SerializeField]
+        Rect rect = new Rect(0, 0, 200, 100);
 
-        public DialogueNode()
+        public Rect GetRect()
         {
-            uniqueID = System.Guid.NewGuid().ToString();
+            return rect;
         }
+
+        public string GetText()
+        {
+            return text;
+        }
+
+        public List<string> GetChildren()
+        {
+            return children;
+        }
+
+#if UNITY_EDITOR
+        public void SetPosition(Vector2 newPosition)
+        {
+            Undo.RecordObject(this, "Move Dialogue Node");
+            rect.position = newPosition;
+        }
+
+        public void SetText(string newText)
+        {
+            if (newText != text)
+            {
+                Undo.RecordObject(this, "Update Dialogue Text");
+                text = newText;
+            }
+        }
+
+        public void AddChild(string childID)
+        {
+            Undo.RecordObject(this, "Add Dialogue Link");
+            children.Add(childID);
+        }
+
+        public void RemoveChild(string childID)
+        {
+            Undo.RecordObject(this, "Remove Dialogue Link");
+            children.Remove(childID);
+        }
+#endif
     }
 }
