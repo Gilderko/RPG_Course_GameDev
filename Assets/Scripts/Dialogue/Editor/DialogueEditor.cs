@@ -20,9 +20,12 @@ namespace RPG.Dialogue.Editor
 
         [NonSerialized] bool draggingCanvas = false;
         [NonSerialized] Vector2 draggingCanvasOffset;
-           
 
+        Texture2D backgroundTexture;
         Vector2 scrollPosition;
+        const int canvasWidth = 4000;
+        const int canvasHeight = 4000;
+        const int backroundSize = 50;
 
         [MenuItem("Window/Dialogue Editor")] // Annotation Callback in editor
         public static void ShowEditorWindow()
@@ -49,6 +52,7 @@ namespace RPG.Dialogue.Editor
 
             nodeStyle = new GUIStyle();
             nodeStyle.normal.background = EditorGUIUtility.Load("node0") as Texture2D;
+            backgroundTexture = Resources.Load("background") as Texture2D;
             nodeStyle.padding = new RectOffset(15, 25, 10, 20);
             nodeStyle.border = new RectOffset(12, 12, 12, 12);
         }
@@ -81,7 +85,10 @@ namespace RPG.Dialogue.Editor
 
                 scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition); // Only for auto layed out components
 
-                GUILayoutUtility.GetRect(4000, 4000);
+                Rect canvas = GUILayoutUtility.GetRect(canvasWidth, canvasHeight);                
+                
+                Rect textureCoords = new Rect(0, 0, canvasWidth/backroundSize, canvasHeight / backroundSize); // Allows to scale background texture
+                GUI.DrawTextureWithTexCoords(canvas, backgroundTexture, textureCoords); // Draws the background
 
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
