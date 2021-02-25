@@ -34,8 +34,9 @@ MonoBehaviour:
   m_Name: 08267dec-abe1-40f8-bc0a-de7700b1c0ac
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: 
-  children: []
+  text: Really?
+  children:
+  - 309a981e-2d60-46fa-a22c-8a3973f8ca78
   rect:
     serializedVersion: 2
     x: 920
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be684b962480a8478eaafc6021d29a8, type: 3}
-  m_Name: New Dialogue
+  m_Name: New in town
   m_EditorClassIdentifier: 
   newNodeOffset: {x: 250, y: 0}
   nodes:
@@ -61,6 +62,7 @@ MonoBehaviour:
   - {fileID: -3096961769106784249}
   - {fileID: 1072210673044296724}
   - {fileID: -327909567473671148}
+  - {fileID: 4381058256580549654}
 --- !u!114 &1072210673044296724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +103,27 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 670
+    y: 417
+    width: 200
+    height: 100
+--- !u!114 &4381058256580549654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 309a981e-2d60-46fa-a22c-8a3973f8ca78
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yeah... Pretty Much
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1170
     y: 417
     width: 200
     height: 100
