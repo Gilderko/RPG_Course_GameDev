@@ -24,7 +24,7 @@ namespace RPG.Dialogue
             {
                 nodeLookup[node.name] = node;
             }
-        }
+        }        
 
         public IEnumerable<DialogueNode> GetAllNodes()
         {
