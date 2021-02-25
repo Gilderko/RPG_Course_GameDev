@@ -9,10 +9,16 @@ namespace RPG.Dialogue
     {
         [SerializeField] Dialogue currentDialogue;
         DialogueNode currentNode;
+        bool isChoosing = false;
 
         private void Awake()
         {
             currentNode = currentDialogue.GetRootNode();
+        }
+
+        public bool IsChoosing()
+        {
+            return isChoosing;
         }
 
         public string GetText()
@@ -26,7 +32,14 @@ namespace RPG.Dialogue
 
         public void Next()
         {
-            DialogueNode[] currentNodeChildren = currentDialogue.GetAllChildren(currentNode).ToArray<DialogueNode>();
+            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            if (numPlayerResponses > 0)
+            {
+                isChoosing = true;
+                return;
+            }
+
+            DialogueNode[] currentNodeChildren = currentDialogue.GetAIChildren(currentNode).ToArray<DialogueNode>();
             int newNextIndex = Random.Range(0, currentNodeChildren.Length);
             currentNode = currentNodeChildren[newNextIndex];
         }
@@ -36,11 +49,12 @@ namespace RPG.Dialogue
             return currentDialogue.GetAllChildren(currentNode).Count() > 0;
         }
 
-        public IEnumerable<string> GetChoices()
+        public IEnumerable<DialogueNode> GetChoices()
         {
-            yield return "Something";
-            yield return "Nothing";
-            yield return "Everything";
+            foreach (DialogueNode node in currentDialogue.GetPlayerChildren(currentNode))
+            {
+                yield return node;
+            }
         }
     }
 }

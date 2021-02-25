@@ -367,7 +367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 702.1896, y: -200.0001}
+  m_AnchoredPosition: {x: 702.1896, y: -200.00012}
   m_SizeDelta: {x: 1404.3792, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4828305259195520636
@@ -779,7 +779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIText: {fileID: 4329396069945789712}
   nextButton: {fileID: 6678044491234022461}
-  choiceRoot: {fileID: 1444879315314094527}
+  AIResponse: {fileID: 1326732930290779999}
+  choiceHide: {fileID: 1341092828708978844}
   choicesParent: {fileID: 3258627080462347743}
   choicePrefarb: {fileID: 5716102646303580315, guid: 11c679562c004d84d823642e4e4585ff,
     type: 3}
