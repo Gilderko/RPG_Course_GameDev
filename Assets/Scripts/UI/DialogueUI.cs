@@ -23,18 +23,20 @@ namespace RPG.UI
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-            nextButton.onClick.AddListener(Next); // Actions but with different syntax
+            playerConversant.onConversationUpdated += UpdateUI;
+            nextButton.onClick.AddListener(Next); // Actions but with different syntax           
+
             UpdateUI();
         }
 
         private void Next()
         {
             playerConversant.Next();
-            UpdateUI();
         }
 
         private void UpdateUI()
         {
+            if (!playerConversant.IsDialogueActive()) { return; }
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceHide.SetActive(playerConversant.IsChoosing());
 
@@ -63,7 +65,6 @@ namespace RPG.UI
                 button.onClick.AddListener(() => 
                 {
                     playerConversant.SelectChoice(choiceNode); // Lambda function
-                    UpdateUI();
                 });
             }
         }
