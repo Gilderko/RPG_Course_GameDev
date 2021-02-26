@@ -784,6 +784,7 @@ MonoBehaviour:
   choicesParent: {fileID: 3258627080462347743}
   choicePrefarb: {fileID: 5716102646303580315, guid: 11c679562c004d84d823642e4e4585ff,
     type: 3}
+  quitButton: {fileID: 1192878625161773155}
 --- !u!1 &3921341461648253398
 GameObject:
   m_ObjectHideFlags: 0

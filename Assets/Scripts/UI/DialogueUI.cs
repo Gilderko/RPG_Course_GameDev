@@ -19,23 +19,21 @@ namespace RPG.UI
         [SerializeField] Transform choicesParent;
 
         [SerializeField] GameObject choicePrefarb;
+        [SerializeField] Button quitButton;
 
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
             playerConversant.onConversationUpdated += UpdateUI;
-            nextButton.onClick.AddListener(Next); // Actions but with different syntax           
+            nextButton.onClick.AddListener(() => { playerConversant.Next(); }); // Actions but with different syntax           
+            quitButton.onClick.AddListener(() => { playerConversant.Quit(); });
 
             UpdateUI();
-        }
-
-        private void Next()
-        {
-            playerConversant.Next();
-        }
+        }       
 
         private void UpdateUI()
         {
+            gameObject.SetActive(playerConversant.IsDialogueActive());
             if (!playerConversant.IsDialogueActive()) { return; }
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceHide.SetActive(playerConversant.IsChoosing());

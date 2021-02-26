@@ -26,6 +26,11 @@ namespace RPG.Dialogue
             StartDialogue(testDialogue);
         }
 
+        private void Update()
+        {
+            print(currentNode.GetText());
+        }
+
         public void StartDialogue(Dialogue newDialogue)
         {
             currentDialogue = newDialogue;
@@ -68,10 +73,22 @@ namespace RPG.Dialogue
                 onConversationUpdated();
                 return;
             }
+            else
+            {
+                Quit();
+            }
 
             DialogueNode[] currentNodeChildren = currentDialogue.GetAIChildren(currentNode).ToArray<DialogueNode>();
             int newNextIndex = UnityEngine.Random.Range(0, currentNodeChildren.Length);
             currentNode = currentNodeChildren[newNextIndex];
+            onConversationUpdated();
+        }
+
+        public void Quit()
+        {
+            currentDialogue = null;
+            currentNode = null;
+            isChoosing = false;
             onConversationUpdated();
         }
 
