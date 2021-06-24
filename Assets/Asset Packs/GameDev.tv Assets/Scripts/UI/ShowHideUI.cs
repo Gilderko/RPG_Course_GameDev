@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GameDevTV.UI
 {
@@ -20,8 +21,13 @@ namespace GameDevTV.UI
         {
             if (Input.GetKeyDown(toggleKey) || Input.GetKeyDown(KeyCode.Escape))
             {
-                uiContainer.SetActive(!uiContainer.activeSelf);
+                Toggle();
             }
+        }
+
+        public void Toggle()
+        {
+            uiContainer.SetActive(!uiContainer.activeSelf);
         }
     }
 }
