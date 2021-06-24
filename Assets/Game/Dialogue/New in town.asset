@@ -21,6 +21,31 @@ MonoBehaviour:
     y: 713
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2239701410966413356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 53b93f51-c70a-456d-8c1b-05e01dff6db2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: A
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 939
+    y: 574
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: LastAnswerOut
 --- !u!114 &-1043513102585966393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,10 +63,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 576
-    y: 981
+    x: 613
+    y: 903
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-327909567473671148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +91,8 @@ MonoBehaviour:
     y: 417
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +115,7 @@ MonoBehaviour:
   - {fileID: 4381058256580549654}
   - {fileID: 8329182369297557633}
   - {fileID: -1043513102585966393}
+  - {fileID: -2239701410966413356}
 --- !u!114 &1072210673044296724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,13 +130,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Something
-  children: []
+  children:
+  - 53b93f51-c70a-456d-8c1b-05e01dff6db2
   rect:
     serializedVersion: 2
-    x: 684
-    y: 560
+    x: 653
+    y: 573
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &2019019441098475950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +158,12 @@ MonoBehaviour:
   - 08267dec-abe1-40f8-bc0a-de7700b1c0ac
   rect:
     serializedVersion: 2
-    x: 670
-    y: 417
+    x: 472
+    y: 432
     width: 200
     height: 100
+  onEnterAction: ActionIn
+  onExitAction: 
 --- !u!114 &4381058256580549654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +181,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 1170
-    y: 417
+    x: 1169
+    y: 349
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &7596474232122488145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,9 +210,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 167
-    y: 552
+    y: 549
     width: 200
     height: 100
+  onEnterAction: RootEntry
+  onExitAction: RootOut
 --- !u!114 &8329182369297557633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +232,9 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 565
-    y: 860
+    x: 518
+    y: 1030
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 

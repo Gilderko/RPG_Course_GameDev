@@ -12,14 +12,12 @@ namespace RPG.UI
         PlayerConversant playerConversant;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
-
         [SerializeField] GameObject AIResponse;
-
         [SerializeField] GameObject choiceHide;
         [SerializeField] Transform choicesParent;
-
         [SerializeField] GameObject choicePrefarb;
         [SerializeField] Button quitButton;
+        [SerializeField] TextMeshProUGUI conversantName;
 
         void Start()
         {
@@ -34,7 +32,11 @@ namespace RPG.UI
         private void UpdateUI()
         {
             gameObject.SetActive(playerConversant.IsDialogueActive());
-            if (!playerConversant.IsDialogueActive()) { return; }
+            if (!playerConversant.IsDialogueActive())
+            {
+                return;
+            }
+            conversantName.text = playerConversant.GetCurrentConversantName();
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceHide.SetActive(playerConversant.IsChoosing());
 

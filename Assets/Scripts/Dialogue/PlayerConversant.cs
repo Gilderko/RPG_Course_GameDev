@@ -8,33 +8,22 @@ namespace RPG.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
-        [SerializeField] Dialogue testDialogue;
+        [SerializeField]
+        string characterName = "Feralkin"; 
+
         Dialogue currentDialogue;
-        DialogueNode currentNode;
+        DialogueNode currentNode = null;
+        AIConversant currentConversant = null;
         bool isChoosing = false;
 
-        public event Action onConversationUpdated;
+        public event Action onConversationUpdated;       
 
-        private void Awake()
+        public void StartDialogue(AIConversant aIConversant,Dialogue newDialogue)
         {
-            
-        }
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(2);
-            StartDialogue(testDialogue);
-        }
-
-        private void Update()
-        {
-            print(currentNode.GetText());
-        }
-
-        public void StartDialogue(Dialogue newDialogue)
-        {
+            currentConversant = aIConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
+            TriggerEnterAction();
             onConversationUpdated();
         }
 
@@ -60,6 +49,7 @@ namespace RPG.Dialogue
         public void SelectChoice(DialogueNode chosenNode)
         {
             currentNode = chosenNode;
+            TriggerEnterAction();
             isChoosing = false;
             Next();
         }
@@ -67,26 +57,49 @@ namespace RPG.Dialogue
         public void Next()
         {
             int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int childrenCount = currentDialogue.GetAllChildren(currentNode).Count();
+            if (childrenCount == 0)
+            {                
+                Quit();
+                return;
+            }
+
             if (numPlayerResponses > 0)
             {
                 isChoosing = true;
                 onConversationUpdated();
                 return;
-            }
-            else
-            {
-                Quit();
-            }
+            }            
 
             DialogueNode[] currentNodeChildren = currentDialogue.GetAIChildren(currentNode).ToArray<DialogueNode>();
             int newNextIndex = UnityEngine.Random.Range(0, currentNodeChildren.Length);
+            TriggerExitAction();
             currentNode = currentNodeChildren[newNextIndex];
+            TriggerEnterAction();
             onConversationUpdated();
+        }
+
+        public string GetCurrentConversantName()
+        {
+            if (currentNode == null)
+            {
+                return "";
+            }
+
+            return isChoosing ? characterName : currentConversant.GetNPCName();
+        }
+
+        private void Update()
+        {
+            print(currentNode.GetText());
+            print(currentNode.IsPlayerSpeaking());
         }
 
         public void Quit()
         {
-            currentDialogue = null;
+            TriggerExitAction();
+            currentConversant = null;
+            currentDialogue = null;            
             currentNode = null;
             isChoosing = false;
             onConversationUpdated();
@@ -104,5 +117,32 @@ namespace RPG.Dialogue
                 yield return node;
             }
         }
+
+        private void TriggerEnterAction()
+        {
+            if (currentNode != null)
+            {
+                TriggerAction(currentNode.GetOnEnterAction());
+            }
+        }
+
+        private void TriggerExitAction()
+        {
+            if (currentNode != null)
+            {
+                TriggerAction(currentNode.GetOnExitAction());
+            }
+        }
+
+        private void TriggerAction(string action)
+        {
+            if (action == "") { return; }
+
+            foreach (DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
+            {
+                trigger.Trigger(action);
+            }
+        }
+
     }
 }
