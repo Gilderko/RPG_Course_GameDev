@@ -89,12 +89,6 @@ namespace RPG.Dialogue
             return isChoosing ? characterName : currentConversant.GetNPCName();
         }
 
-        private void Update()
-        {
-            print(currentNode.GetText());
-            print(currentNode.IsPlayerSpeaking());
-        }
-
         public void Quit()
         {
             TriggerExitAction();
