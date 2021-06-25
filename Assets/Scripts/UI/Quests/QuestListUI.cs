@@ -6,19 +6,17 @@ using UnityEngine;
 namespace RPG.UI.Quests
 {
     public class QuestListUI : MonoBehaviour
-    {
-        [SerializeField]
-        List<Quest> tempQuests;
-
+    {        
         [SerializeField]
         QuestItemUI questPrefarb;
 
         private void Start()
         {
-            foreach (var quest in tempQuests)
+            var questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            foreach (var questStatus in questList.GetStatuses())
             {
                 var questUIInstance = Instantiate<QuestItemUI>(questPrefarb, gameObject.transform);
-                questUIInstance.Setup(quest);
+                questUIInstance.Setup(questStatus);
             }
         }
     }

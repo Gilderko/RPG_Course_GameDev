@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8caedad6e2b93f4f843753ec86fbe50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testDialogue: {fileID: 11400000, guid: 2300078a76266094cab38d6f95e1bc31, type: 2}
+  characterName: Feralkin
 --- !u!114 &-2095327218292356361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +39,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefc9444d3325884daececbfa2a5fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1434207338008585306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902660786131331472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c328b560e58a348bf226df878d1915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statuses:
+  - quest: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
+    completedObjectives:
+    - Firelord defeated 0/1
+  - quest: {fileID: 11400000, guid: d46418c2c4ed5264e8a71ac2faf1b299, type: 2}
+    completedObjectives:
+    - Capital seized 0/1
 --- !u!114 &2431349067919607604
 MonoBehaviour:
   m_ObjectHideFlags: 0
