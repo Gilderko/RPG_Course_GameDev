@@ -1912,14 +1912,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e3d836fe05c844cbc92f6380bc0851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionRespond: Attack
+  actionRespond: Quest1Complete
   onTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 345496132}
-        m_TargetAssemblyTypeName: RPG.Combat.AggroGroup, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 6
+      - m_Target: {fileID: 752970209}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
+        m_MethodName: CompleteObjective
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1928,6 +1928,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &752970209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752970192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307f4bbbe40c6964c95782a07e9f9cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relatedQuest: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
+  objective: Quest1Complete
 --- !u!1 &793320299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,7 +3994,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514019296}
-  m_LocalRotation: {x: 0.05279829, y: -0.2527143, z: 0.0138125, w: 0.96600056}
+  m_LocalRotation: {x: 0.052798267, y: -0.25271434, z: 0.013812496, w: 0.96600056}
   m_LocalPosition: {x: -28.418999, y: 2.6535158, z: 24.490223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9019,7 +9033,7 @@ PrefabInstance:
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -199.99963
+      value: -200.00002
       objectReference: {fileID: 0}
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}

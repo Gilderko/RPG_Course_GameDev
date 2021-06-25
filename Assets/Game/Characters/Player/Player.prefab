@@ -51,13 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c328b560e58a348bf226df878d1915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statuses:
-  - quest: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
-    completedObjectives:
-    - Firelord defeated 0/1
-  - quest: {fileID: 11400000, guid: d46418c2c4ed5264e8a71ac2faf1b299, type: 2}
-    completedObjectives:
-    - Capital seized 0/1
+  statuses: []
 --- !u!114 &2431349067919607604
 MonoBehaviour:
   m_ObjectHideFlags: 0

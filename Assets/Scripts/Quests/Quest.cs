@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,5 +24,9 @@ namespace RPG.Quests
             return questTitle;
         }
 
+        public bool HasObjective(string objective)
+        {
+            return objectives.Contains(objective);
+        }
     }
 }

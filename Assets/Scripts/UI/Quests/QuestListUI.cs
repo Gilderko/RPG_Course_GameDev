@@ -20,6 +20,7 @@ namespace RPG.UI.Quests
         
         private void RedrawUI()
         {
+            transform.DetachChildren();
             foreach (var questStatus in questList.GetStatuses())
             {
                 var questUIInstance = Instantiate<QuestItemUI>(questPrefarb, gameObject.transform);

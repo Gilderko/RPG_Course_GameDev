@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Name: 53b93f51-c70a-456d-8c1b-05e01dff6db2
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: A
+  text: Here you go something
   children: []
   rect:
     serializedVersion: 2
@@ -45,7 +45,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: LastAnswerOut
+  onExitAction: Firelord defeated 0/1
 --- !u!114 &-1043513102585966393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
   - 24ca105d-09b6-4388-8acc-d7e1df89a50f
   rect:
     serializedVersion: 2
-    x: 757
-    y: 424
+    x: 732
+    y: 401
     width: 200
     height: 100
   onEnterAction: 
