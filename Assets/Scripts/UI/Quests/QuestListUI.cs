@@ -10,9 +10,16 @@ namespace RPG.UI.Quests
         [SerializeField]
         QuestItemUI questPrefarb;
 
+        QuestList questList;
+
         private void Start()
         {
-            var questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            questList.onQuestListUpdated += RedrawUI;           
+        } 
+        
+        private void RedrawUI()
+        {
             foreach (var questStatus in questList.GetStatuses())
             {
                 var questUIInstance = Instantiate<QuestItemUI>(questPrefarb, gameObject.transform);

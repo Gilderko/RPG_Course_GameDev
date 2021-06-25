@@ -2556,7 +2556,7 @@ PrefabInstance:
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.65
+      value: 68.4
       objectReference: {fileID: 0}
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
@@ -2566,7 +2566,7 @@ PrefabInstance:
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.08
+      value: 34.83
       objectReference: {fileID: 0}
     - target: {fileID: 1466135209984916882, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
@@ -4166,6 +4166,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed0630d0160f35439dffb044c3ae874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1681128991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3418213045117489655, guid: 97794e8f32d9d574c8ed85db378e8c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1113605395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1681129005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681128991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdc8133fb606b840a7c38806e0b6fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 7139a415dcb23084eb6d30d75fa75080, type: 2}
+  npcName: Guardsman
+--- !u!114 &1681129006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681128991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e3d836fe05c844cbc92f6380bc0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRespond: GiveQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1681129007}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1681129007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681128991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584d7800325684a4d834c5760707d6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questToGive: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
 --- !u!1 &1690961024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,7 +4664,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1113605395}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1681128991}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed0630d0160f35439dffb044c3ae874, type: 3}
@@ -4812,7 +4873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874861664}
-  m_LocalRotation: {x: 0.15534082, y: -0.06980496, z: 0.011004999, w: 0.9853301}
+  m_LocalRotation: {x: 0.15534082, y: -0.06980496, z: 0.011005, w: 0.9853301}
   m_LocalPosition: {x: 2.15, y: 4.69, z: -2.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8958,7 +9019,7 @@ PrefabInstance:
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200.00003
+      value: -199.99963
       objectReference: {fileID: 0}
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}

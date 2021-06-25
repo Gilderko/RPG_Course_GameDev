@@ -11,7 +11,7 @@ namespace RPG.Quests
         string questTitle;
 
         [SerializeField]
-        List<string> objectives;        
+        List<string> objectives = new List<string>();        
 
         public IEnumerable<string> GetObjectives()
         {

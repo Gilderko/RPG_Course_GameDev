@@ -13,7 +13,7 @@ namespace RPG.UI.Quests
         [SerializeField] TextMeshProUGUI title;
         [SerializeField] TextMeshProUGUI progress;
 
-        QuestStatus currentQuestStatus;
+        QuestStatus currentQuestStatus;      
 
         public void Setup(QuestStatus questStatus)
         {
