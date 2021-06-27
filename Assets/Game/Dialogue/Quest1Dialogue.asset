@@ -19,11 +19,14 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 25
-    y: 273
+    y: 291
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &-4136960832862600328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,14 +44,19 @@ MonoBehaviour:
   children:
   - bb6749c7-d2af-45b5-aacf-24a4a528c29d
   - 16c3a693-5e30-41f9-b3d0-fb7e4e50f560
+  - 62d0563c-d7a3-4640-aa77-0a63df5f2b28
+  - f4d83960-7c31-4de2-b569-b18c9a0fe782
   rect:
     serializedVersion: 2
-    x: 252
-    y: 266
+    x: 268
+    y: 270
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &-3530228939498347143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,12 +74,42 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 768
-    y: 371
+    x: 834
+    y: 327
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: GiveQuest
+  condition:
+    predicate: 0
+    paramaters: []
+--- !u!114 &-2240558227069272559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: f4d83960-7c31-4de2-b569-b18c9a0fe782
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "I\xB4ve just finished"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 589
+    y: 597
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 3
+    paramaters:
+    - Quest1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +129,35 @@ MonoBehaviour:
   - {fileID: 5745394610849448376}
   - {fileID: 6033129217021443495}
   - {fileID: -3530228939498347143}
+  - {fileID: 1695691553744540250}
+  - {fileID: -2240558227069272559}
+--- !u!114 &1695691553744540250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 62d0563c-d7a3-4640-aa77-0a63df5f2b28
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Mate I was just here
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 631
+    y: 455
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 1
+    paramaters:
+    - Quest1
 --- !u!114 &5745394610849448376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,11 +176,14 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 524
-    y: 186
+    y: 185
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &6033129217021443495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,9 +202,12 @@ MonoBehaviour:
   - 2e315bba-f691-4a34-b677-993034d82974
   rect:
     serializedVersion: 2
-    x: 518
-    y: 371
+    x: 568
+    y: 296
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []

@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using GameDevTV.Saving;
+using RPG.Core;
+using System.Collections.Generic;
 
 namespace GameDevTV.Inventories
 {
@@ -10,7 +12,7 @@ namespace GameDevTV.Inventories
     ///
     /// This component should be placed on the GameObject tagged "Player".
     /// </summary>
-    public class Inventory : MonoBehaviour, ISaveable
+    public class Inventory : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         // CONFIG DATA
         [Tooltip("Allowed size")]
@@ -252,6 +254,17 @@ namespace GameDevTV.Inventories
             {
                 inventoryUpdated();
             }
+        }
+
+        public bool? Evaluate(PredicateTypes predicate, List<string> parameters)
+        {
+            switch (predicate)
+            {
+                case PredicateTypes.HasInventoryItem:
+                    return HasItem(InventoryItem.GetFromID(parameters[0]));
+
+            }
+            return null;
         }
     }
 }

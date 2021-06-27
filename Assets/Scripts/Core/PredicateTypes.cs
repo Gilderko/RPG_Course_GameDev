@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-    public interface IPredicateEvaluator 
+    public enum PredicateTypes
     {
-        bool? Evaluate(PredicateTypes predicate, List<string> parameters);
+        None,
+        HasQuest,
+        HasInventoryItem,
+        CompletedQuest
     }
 }

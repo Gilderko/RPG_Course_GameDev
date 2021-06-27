@@ -118,7 +118,7 @@ namespace RPG.Dialogue
 
         public void OnBeforeSerialize()
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR            
             if (nodes.Count == 0)
             {
                 DialogueNode node = MakeNode(null);

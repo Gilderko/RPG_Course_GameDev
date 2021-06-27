@@ -57,6 +57,7 @@ namespace RPG.UI
             {
                 Destroy(item.gameObject);
             }
+
             foreach (DialogueNode choiceNode in playerConversant.GetChoices())
             {
                 GameObject option = Instantiate(choicePrefarb, choicesParent);

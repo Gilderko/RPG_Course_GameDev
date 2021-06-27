@@ -23,6 +23,36 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
+--- !u!114 &-2461153795073865977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 60bb4bb6-74ab-4f52-b94e-b0868ee9c39c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I see you completed something
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 563
+    y: 1017
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 1
+    paramaters:
+    - Quest1
 --- !u!114 &-2239701410966413356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,31 +74,11 @@ MonoBehaviour:
     y: 574
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 1
---- !u!114 &-1043513102585966393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 3a17fcdd-c44d-48a2-bd1f-5d5781a1d544
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Who cares?
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 613
-    y: 903
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: Happy
+  onExitAction: Firelord
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,12 +97,39 @@ MonoBehaviour:
   - {fileID: 2019019441098475950}
   - {fileID: -3096961769106784249}
   - {fileID: 1072210673044296724}
-  - {fileID: 8329182369297557633}
-  - {fileID: -1043513102585966393}
   - {fileID: -2239701410966413356}
   - {fileID: 2834194554318075976}
   - {fileID: 6243633361193293823}
   - {fileID: 5563217828653888161}
+  - {fileID: 361826509992328158}
+  - {fileID: -2461153795073865977}
+--- !u!114 &361826509992328158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 4424f4b1-f08c-4a94-9dea-123d7c2f54cf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I see you have a sword there
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 590
+    y: 882
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 2
+    paramaters:
+    - 0d185f59-a89a-4981-b131-d5046ccb688e
 --- !u!114 &1072210673044296724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +154,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &2019019441098475950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +181,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: ActionIn
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &2834194554318075976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +209,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: Attack
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &5563217828653888161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +235,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &6243633361193293823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +261,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []
 --- !u!114 &7596474232122488145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,36 +282,16 @@ MonoBehaviour:
   - 328a0ca1-fb8f-45d7-b828-bad51182f9ec
   - 7c8a61ba-2e70-4ae0-9348-fd59afa24cff
   - 59c0b39d-c665-48b0-9f6e-8e841719df4d
-  - 276227f3-59c1-4d2e-bd17-342b61778983
-  - 3a17fcdd-c44d-48a2-bd1f-5d5781a1d544
+  - 4424f4b1-f08c-4a94-9dea-123d7c2f54cf
+  - 60bb4bb6-74ab-4f52-b94e-b0868ee9c39c
   rect:
     serializedVersion: 2
     x: 167
-    y: 549
+    y: 551
     width: 200
     height: 100
   onEnterAction: RootEntry
   onExitAction: RootOut
---- !u!114 &8329182369297557633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 276227f3-59c1-4d2e-bd17-342b61778983
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: I have no idea mate
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 518
-    y: 1030
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
+  condition:
+    predicate: 0
+    paramaters: []

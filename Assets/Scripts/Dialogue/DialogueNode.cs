@@ -22,8 +22,12 @@ namespace RPG.Dialogue
         [SerializeField]
         string onExitAction = "";
         [SerializeField]
-        Condition condition;
+        Condition condition = new Condition();    
 
+        public Condition GetCondition()
+        {
+            return condition;
+        }
 
         public string GetOnEnterAction()
         {
@@ -61,6 +65,20 @@ namespace RPG.Dialogue
         }
 
 #if UNITY_EDITOR
+        public void SetEnterAction(string action)
+        {
+            Undo.RecordObject(this, "Set enter action");
+            onEnterAction = action;
+            EditorUtility.SetDirty(this);
+        }
+
+        public void SetExitAction(string action)
+        {
+            Undo.RecordObject(this, "Set exitaction");
+            onExitAction = action;
+            EditorUtility.SetDirty(this);
+        }
+
         public void SetPosition(Vector2 newPosition)
         {
             Undo.RecordObject(this, "Move Dialogue Node");
@@ -98,8 +116,6 @@ namespace RPG.Dialogue
             isPlayerSpeaking = isPlaySpeaking;
             EditorUtility.SetDirty(this);
         }
-
-        
 #endif
     }
 }
