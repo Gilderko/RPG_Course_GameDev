@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RPG.Quests
@@ -44,6 +45,13 @@ namespace RPG.Quests
             var loadRecord = objectState as QuestStatusRecord;
             quest = Quest.GetByName(loadRecord.GetName());
             completedObjectives = loadRecord.GetCompletedObjectives();
+        }
+
+        public bool IsQuestComplete()
+        {
+            Debug.Log(quest.GetObjectives().Count());
+            Debug.Log(completedObjectives.Count());
+            return quest.GetObjectives().Count() == completedObjectives.Count();
         }
 
         public Quest GetQuest()

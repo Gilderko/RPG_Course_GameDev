@@ -1,4 +1,5 @@
-﻿using GameDevTV.Saving;
+﻿using GameDevTV.Inventories;
+using GameDevTV.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,10 +37,28 @@ namespace RPG.Quests
             if (questStat == null || questStat.IsObjectiveComplete(objective))
             {
                 return;
-            }
+            }           
 
             questStat.CompleteObjective(objective);
+
+            if (questStat.IsQuestComplete())
+            {
+                GiveReward(quest);
+            }
+
             onQuestListUpdated();
+        }
+
+        private void GiveReward(Quest quest)
+        {
+            foreach (var reward in quest.GetQuestRewards())
+            {
+                var rewardSucces = GetComponent<Inventory>().AddToFirstEmptySlot(reward.GetItemReward(), reward.GetHowMany());
+                if (!rewardSucces)
+                {
+                    GetComponent<ItemDropper>().DropItem(reward.GetItemReward(), reward.GetHowMany());
+                }
+            }
         }
 
         private QuestStatus GetQuestStatus(Quest quest)

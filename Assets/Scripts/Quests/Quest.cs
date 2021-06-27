@@ -20,9 +20,11 @@ namespace RPG.Quests
         List<QuestReward> rewards = new List<QuestReward>();
         
         [System.Serializable]
-        class QuestReward
+        public class QuestReward
         {
+            [Min(1)]
             [SerializeField] int stackNumber;
+
             [SerializeField] InventoryItem item;
 
             public int GetHowMany()
@@ -56,6 +58,11 @@ namespace RPG.Quests
         public IEnumerable<QuestObjective> GetObjectives()
         {
             return objectives;
+        }
+
+        public IEnumerable<QuestReward> GetQuestRewards()
+        {
+            return rewards;
         }
 
         public string GetQuestTitle()
