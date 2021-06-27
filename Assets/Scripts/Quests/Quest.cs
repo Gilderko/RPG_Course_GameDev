@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameDevTV.Inventories;
 
 namespace RPG.Quests
 {
@@ -12,9 +14,46 @@ namespace RPG.Quests
         string questTitle;
 
         [SerializeField]
-        List<string> objectives = new List<string>();        
+        List<QuestObjective> objectives = new List<QuestObjective>();
 
-        public IEnumerable<string> GetObjectives()
+        [SerializeField]
+        List<QuestReward> rewards = new List<QuestReward>();
+        
+        [System.Serializable]
+        class QuestReward
+        {
+            [SerializeField] int stackNumber;
+            [SerializeField] InventoryItem item;
+
+            public int GetHowMany()
+            {
+                return stackNumber;
+            }
+
+            public InventoryItem GetItemReward()
+            {
+                return item;
+            }
+        }
+
+        [System.Serializable]
+        public class QuestObjective
+        {
+            [SerializeField] string description;
+            [SerializeField] string reference;
+
+            public string GetDescription()
+            {
+                return description;
+            }
+
+            public string GetReference()
+            {
+                return reference;
+            }
+        }
+
+        public IEnumerable<QuestObjective> GetObjectives()
         {
             return objectives;
         }
@@ -26,7 +65,12 @@ namespace RPG.Quests
 
         public bool HasObjective(string objective)
         {
-            return objectives.Contains(objective);
+            return objectives.Select(obj => obj.GetReference()).Contains(objective);
+        }
+
+        public static Quest GetByName(string questName)
+        {
+            return Resources.LoadAll<Quest>("").First(quest => quest.name == questName);
         }
     }
 }

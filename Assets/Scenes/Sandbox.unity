@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e3d836fe05c844cbc92f6380bc0851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionRespond: Quest1Complete
+  actionRespond: 1
   onTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relatedQuest: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
-  objective: Quest1Complete
+  objective: 1
 --- !u!1 &793320299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6940,6 +6940,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1224528721092827506, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 87.12238
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224528721092827506, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 34.965343
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224528721092827506, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.014877
+      objectReference: {fileID: 0}
     - target: {fileID: 1267462843757201759, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -7123,7 +7138,7 @@ PrefabInstance:
     - target: {fileID: 1525313754678112731, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31.699219
+      value: 31.75
       objectReference: {fileID: 0}
     - target: {fileID: 1525313754678112731, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -9033,7 +9048,7 @@ PrefabInstance:
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200.00002
+      value: -199.9999
       objectReference: {fileID: 0}
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -10818,7 +10833,7 @@ PrefabInstance:
     - target: {fileID: 8048486136871433638, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00023141131
+      value: -0.000009483379
       objectReference: {fileID: 0}
     - target: {fileID: 8048486136871433638, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -11574,6 +11589,44 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[2].completedObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[1].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: d46418c2c4ed5264e8a71ac2faf1b299,
+        type: 2}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[1].completedObjectives.Array.data[0]
+      value: Capital seized 0/1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[2].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: d46418c2c4ed5264e8a71ac2faf1b299,
+        type: 2}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[2].completedObjectives.Array.data[0]
+      value: Capital seized 0/1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[0].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: d46418c2c4ed5264e8a71ac2faf1b299,
+        type: 2}
+    - target: {fileID: 9000103437305680942, guid: 9065ec7e81ca8034a865d6fdd7906af9,
+        type: 3}
+      propertyPath: statuses.Array.data[0].completedObjectives.Array.data[0]
+      value: Capital seized 0/1
       objectReference: {fileID: 0}
     - target: {fileID: 9007905601002313263, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}

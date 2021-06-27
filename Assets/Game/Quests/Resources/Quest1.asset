@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: Defeat the Firelord
   objectives:
-  - Firelord defeated 0/1
+  - description: Defeat the firelord
+    reference: Firelord
+  - description: Be happy
+    reference: Happy
+  rewards:
+  - stackNumber: 1
+    item: {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}

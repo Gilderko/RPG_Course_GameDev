@@ -12,12 +12,14 @@ namespace RPG.UI.Quests
 
         QuestList questList;
 
-        private void Start()
+        private void Awake()
         {
             questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
-            questList.onQuestListUpdated += RedrawUI;           
-        } 
-        
+            Debug.Log("Added to on update UI");
+            questList.onQuestListUpdated += RedrawUI;
+            RedrawUI();
+        }
+       
         private void RedrawUI()
         {
             transform.DetachChildren();

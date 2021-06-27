@@ -35,5 +35,10 @@ namespace RPG.Dialogue
             }
             return true;
         }        
+
+        public Dialogue GetCorrespondingDialogue()
+        {
+            return dialogue;
+        }
     }
 }

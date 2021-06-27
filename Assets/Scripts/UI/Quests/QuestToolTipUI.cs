@@ -22,10 +22,10 @@ namespace RPG.UI.Quests
             foreach (var objective in quest.GetObjectives())
             {
                 print(objective);
-                var objectiveUI = questStatus.IsObjectiveComplete(objective) ? Instantiate(objectiveCompletePrefab, objectiveContainer) :
+                var objectiveUI = questStatus.IsObjectiveComplete(objective.GetReference()) ? Instantiate(objectiveCompletePrefab, objectiveContainer) :
                     Instantiate(objectivePrefab, objectiveContainer);
                 var objectiveText = objectiveUI.GetComponentInChildren<TextMeshProUGUI>();
-                objectiveText.text = objective;
+                objectiveText.text = objective.GetDescription();
             }
         }
     }

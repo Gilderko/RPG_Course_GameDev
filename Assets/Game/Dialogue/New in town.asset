@@ -45,7 +45,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: Firelord defeated 0/1
+  onExitAction: 1
 --- !u!114 &-1043513102585966393
 MonoBehaviour:
   m_ObjectHideFlags: 0
