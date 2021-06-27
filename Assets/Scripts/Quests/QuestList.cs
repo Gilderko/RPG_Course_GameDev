@@ -1,5 +1,6 @@
 ﻿using GameDevTV.Inventories;
 using GameDevTV.Saving;
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    public class QuestList : MonoBehaviour, ISaveable
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         public List<QuestStatus> statuses = new List<QuestStatus>();
 
@@ -66,6 +67,11 @@ namespace RPG.Quests
             return statuses.First(status => status.GetQuest() == quest);
         }
 
+        public bool HasQuest(Quest quest)
+        {
+            return statuses.Select(stat => stat.GetQuest()).Contains(quest);
+        }
+
         public object CaptureState()
         {
             List<object> state = new List<object>();
@@ -91,6 +97,16 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));                
             }
+        }
+
+        public bool? Evaluate(string predicate, List<string> parameters)
+        {
+            if (predicate != "HasQuest")
+            {
+                return null;
+            }
+
+            return HasQuest(Quest.GetByName(parameters[0]));
         }
     }
 }

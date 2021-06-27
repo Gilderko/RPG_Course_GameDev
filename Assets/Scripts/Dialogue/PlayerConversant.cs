@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using RPG.Core;
 
 namespace RPG.Dialogue
 {
@@ -56,7 +57,7 @@ namespace RPG.Dialogue
 
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             int childrenCount = currentDialogue.GetAllChildren(currentNode).Count();
             if (childrenCount == 0)
             {                
@@ -71,12 +72,28 @@ namespace RPG.Dialogue
                 return;
             }            
 
-            DialogueNode[] currentNodeChildren = currentDialogue.GetAIChildren(currentNode).ToArray<DialogueNode>();
+            DialogueNode[] currentNodeChildren = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray<DialogueNode>();
             int newNextIndex = UnityEngine.Random.Range(0, currentNodeChildren.Length);
             TriggerExitAction();
             currentNode = currentNodeChildren[newNextIndex];
             TriggerEnterAction();
             onConversationUpdated();
+        }
+
+        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNodes)
+        {
+            foreach (var node in inputNodes)
+            {
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
         }
 
         public string GetCurrentConversantName()
@@ -101,15 +118,12 @@ namespace RPG.Dialogue
 
         public bool HasNext()
         {            
-            return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
         }
 
         public IEnumerable<DialogueNode> GetChoices()
         {
-            foreach (DialogueNode node in currentDialogue.GetPlayerChildren(currentNode))
-            {
-                yield return node;
-            }
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
         }
 
         private void TriggerEnterAction()
