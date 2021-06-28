@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc8133fb606b840a7c38806e0b6fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 2300078a76266094cab38d6f95e1bc31, type: 2}
+  dialogue: {fileID: 11400000, guid: 1757650122a6a2a449a2592094f176f3, type: 2}
   npcName: Guardsman
 --- !u!114 &752970202 stripped
 MonoBehaviour:
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e3d836fe05c844cbc92f6380bc0851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionRespond: Firelord
+  actionRespond: DefeatedEnemy
   onTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307f4bbbe40c6964c95782a07e9f9cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedQuest: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
+  relatedQuest: {fileID: 11400000, guid: bb1f2d39fabda384d8d2e5d875943663, type: 2}
   objective: Firelord
 --- !u!1 &793320299
 GameObject:
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc8133fb606b840a7c38806e0b6fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 7139a415dcb23084eb6d30d75fa75080, type: 2}
+  dialogue: {fileID: 11400000, guid: 1757650122a6a2a449a2592094f176f3, type: 2}
   npcName: Guardsman
 --- !u!114 &1681129006
 MonoBehaviour:
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584d7800325684a4d834c5760707d6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questToGive: {fileID: 11400000, guid: 0f95afe4cdc35614c870e469f71e9f8b, type: 2}
+  questToGive: {fileID: 11400000, guid: bb1f2d39fabda384d8d2e5d875943663, type: 2}
 --- !u!1 &1690961024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4887,7 +4887,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874861664}
-  m_LocalRotation: {x: 0.15534082, y: -0.06980495, z: 0.011004999, w: 0.9853301}
+  m_LocalRotation: {x: 0.15534082, y: -0.06980496, z: 0.011004999, w: 0.9853301}
   m_LocalPosition: {x: 2.15, y: 4.69, z: -2.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9048,7 +9048,7 @@ PrefabInstance:
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -199.99954
+      value: -199.99913
       objectReference: {fileID: 0}
     - target: {fileID: 4837426255087413405, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
@@ -10833,7 +10833,7 @@ PrefabInstance:
     - target: {fileID: 8048486136871433638, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00026014712
+      value: -0.00029247347
       objectReference: {fileID: 0}
     - target: {fileID: 8048486136871433638, guid: 9065ec7e81ca8034a865d6fdd7906af9,
         type: 3}

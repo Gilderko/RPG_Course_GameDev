@@ -11,59 +11,61 @@ namespace RPG.Core
     public class Condition 
     {
         [SerializeField]
-        PredicateTypes predicate = PredicateTypes.None;
-
-        [SerializeField]
-        List<string> paramaters = new List<string>();
-
-        public bool Check(IEnumerable<IPredicateEvaluator> predicateEvaluators)
+        Disjunction[] AndDisjunctions;
+        public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
         {
-            foreach (var evaluator in predicateEvaluators)
+            foreach (Disjunction dis in AndDisjunctions)
             {
-                bool? result = evaluator.Evaluate(predicate, paramaters.ToList());
-                if (!result.HasValue)
+                if (!dis.Check(evaluators))
                 {
-                    continue;
-                }
-
-                bool resultValue = result.Value;
-
-                if (!resultValue)
-                {
-                    return resultValue;
+                    return false;
                 }
             }
             return true;
         }
 
-        public PredicateTypes GetPredicateName()
+        [System.Serializable]
+        class Disjunction
         {
-            return predicate;
+            [SerializeField]
+            MyPredicate[] OrPredicates;
+
+            public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
+            {
+                foreach (var pred in OrPredicates)
+                {
+                    if (pred.Check(evaluators))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
-        public void SetHasQuest(string questName)
+
+        [System.Serializable]
+        public class MyPredicate
         {
-            paramaters = new List<string> { questName };
+            public PredicateTypes predicate = PredicateTypes.None;
+            public List<string> paramaters = new List<string>();
+            public bool shouldNegate = false;
+
+            public bool Check(IEnumerable<IPredicateEvaluator> predicateEvaluators)
+            {
+                foreach (var evaluator in predicateEvaluators)
+                {
+                    bool? result = evaluator.Evaluate(predicate, paramaters.ToList());
+                    if (!result.HasValue)
+                    {
+                        continue;
+                    }
+
+                    if (result == shouldNegate) return false;
+                }
+                return true;
+            }
         }
         
-        public void SetHasInventoryItem(string itemID)
-        {
-            paramaters = new List<string> { itemID };
-        }
-
-        public void SetCompletedQuest(string questName)
-        {
-            paramaters = new List<string> { questName };            
-        }
-
-        public void SetPredicateName(PredicateTypes name)
-        {
-            predicate = name;
-        }
-
-        public List<string> GetParameteres()
-        {
-            return paramaters;
-        }
     }
 }

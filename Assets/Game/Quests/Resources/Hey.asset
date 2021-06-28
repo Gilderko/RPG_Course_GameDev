@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20ac048db5bffa143bf836ef4c181968, type: 3}
-  m_Name: Quest2
+  m_Name: Hey
   m_EditorClassIdentifier: 
-  questTitle: Rule the Firenation
+  questTitle: 
   objectives:
-  - Capital seized 0/1
-  - Crown ceremony undertaken 0/1
+  - description: Defeat him
+    reference: DefeatGuard
+  rewards:
+  - stackNumber: 1
+    item: {fileID: 11400000, guid: b36dbc9888d09ed4c9c877c844634e92, type: 2}

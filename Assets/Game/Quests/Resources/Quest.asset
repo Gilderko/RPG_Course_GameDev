@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20ac048db5bffa143bf836ef4c181968, type: 3}
-  m_Name: Quest1
+  m_Name: Quest
   m_EditorClassIdentifier: 
-  questTitle: Defeat the Firelord
+  questTitle: 
   objectives:
-  - description: Defeat the firelord
-    reference: Firelord
+  - description: Become Speed
+    reference: SpeedBecame
   rewards:
   - stackNumber: 1
-    item: {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}
+    item: {fileID: 11400000, guid: 0071fb8ea1b0df04baa6fd317f52b9a2, type: 2}

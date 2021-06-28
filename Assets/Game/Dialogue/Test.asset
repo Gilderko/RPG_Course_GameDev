@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6292151422007898377
+--- !u!114 &-7780326429976892342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 9686d2cd-6195-4963-9b91-c89fe74e3586
+  m_Name: a0b370c3-132b-4343-8305-fc1f238a1f26
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Hey care to give me a hand?
+  text: Hello there
   children:
-  - f16afd91-e606-4e99-ac85-861a716775f9
+  - 13deebaf-d352-48e2-9d07-6f63e4187324
+  - 8d21c393-2d12-46a2-ab47-24a9df6642fc
   rect:
     serializedVersion: 2
-    x: 25
-    y: 291
+    x: 85
+    y: 175
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 0
-    paramaters: []
---- !u!114 &-4136960832862600328
+    AndDisjunctions: []
+--- !u!114 &-1052371723352392796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,51 +37,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: f16afd91-e606-4e99-ac85-861a716775f9
+  m_Name: 56134963-1a44-4cc0-89c9-d13c635d5a6d
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Like now?
-  children:
-  - bb6749c7-d2af-45b5-aacf-24a4a528c29d
-  - 16c3a693-5e30-41f9-b3d0-fb7e4e50f560
-  - 24f7b87a-f958-4dbf-b111-8af121e2eb63
-  rect:
-    serializedVersion: 2
-    x: 268
-    y: 270
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    predicate: 0
-    paramaters: []
---- !u!114 &-3530228939498347143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 2e315bba-f691-4a34-b677-993034d82974
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Great go do something
+  text: 
   children: []
   rect:
     serializedVersion: 2
-    x: 834
-    y: 327
+    x: 591
+    y: 68
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: GiveQuest
+  onExitAction: 
   condition:
-    predicate: 0
-    paramaters: []
+    AndDisjunctions: []
+--- !u!114 &-677968691544859141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: 8d21c393-2d12-46a2-ab47-24a9df6642fc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I have Item
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 318
+    y: 303
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    AndDisjunctions:
+    - OrPredicates:
+      - predicate: 1
+        paramaters:
+        - Hey
+        shouldNegate: 0
+      - predicate: 1
+        paramaters:
+        - Quest
+        shouldNegate: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,17 +96,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be684b962480a8478eaafc6021d29a8, type: 3}
-  m_Name: Quest1Dialogue
+  m_Name: Test
   m_EditorClassIdentifier: 
   newNodeOffset: {x: 250, y: 0}
   nodes:
-  - {fileID: -6292151422007898377}
-  - {fileID: -4136960832862600328}
-  - {fileID: 5745394610849448376}
-  - {fileID: 6033129217021443495}
-  - {fileID: -3530228939498347143}
-  - {fileID: 3277993213751439623}
---- !u!114 &3277993213751439623
+  - {fileID: -7780326429976892342}
+  - {fileID: 3516487574147400292}
+  - {fileID: -1052371723352392796}
+  - {fileID: 614683016180200941}
+  - {fileID: -677968691544859141}
+--- !u!114 &614683016180200941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,24 +115,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 24f7b87a-f958-4dbf-b111-8af121e2eb63
+  m_Name: f5f01614-ed84-48b9-b799-f4c573906c9f
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: I see you have a Sword
+  isPlayerSpeaking: 0
+  text: Here you go
   children: []
   rect:
     serializedVersion: 2
-    x: 595
-    y: 529
+    x: 586
+    y: -40
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: GiveQuest
   condition:
-    predicate: 2
-    paramaters:
-    - 0d185f59-a89a-4981-b131-d5046ccb688e
---- !u!114 &5745394610849448376
+    AndDisjunctions: []
+--- !u!114 &3516487574147400292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,46 +140,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: bb6749c7-d2af-45b5-aacf-24a4a528c29d
+  m_Name: 13deebaf-d352-48e2-9d07-6f63e4187324
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Nah
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 524
-    y: 185
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    predicate: 0
-    paramaters: []
---- !u!114 &6033129217021443495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 16c3a693-5e30-41f9-b3d0-fb7e4e50f560
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Sure
+  text: I want quest
   children:
-  - 2e315bba-f691-4a34-b677-993034d82974
+  - 56134963-1a44-4cc0-89c9-d13c635d5a6d
+  - f5f01614-ed84-48b9-b799-f4c573906c9f
   rect:
     serializedVersion: 2
-    x: 568
-    y: 296
+    x: 337
+    y: 53
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 0
-    paramaters: []
+    AndDisjunctions: []
