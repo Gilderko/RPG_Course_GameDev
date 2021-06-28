@@ -44,8 +44,7 @@ MonoBehaviour:
   children:
   - bb6749c7-d2af-45b5-aacf-24a4a528c29d
   - 16c3a693-5e30-41f9-b3d0-fb7e4e50f560
-  - 62d0563c-d7a3-4640-aa77-0a63df5f2b28
-  - f4d83960-7c31-4de2-b569-b18c9a0fe782
+  - 24f7b87a-f958-4dbf-b111-8af121e2eb63
   rect:
     serializedVersion: 2
     x: 268
@@ -83,33 +82,6 @@ MonoBehaviour:
   condition:
     predicate: 0
     paramaters: []
---- !u!114 &-2240558227069272559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: f4d83960-7c31-4de2-b569-b18c9a0fe782
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: "I\xB4ve just finished"
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 589
-    y: 597
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    predicate: 3
-    paramaters:
-    - Quest1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +101,8 @@ MonoBehaviour:
   - {fileID: 5745394610849448376}
   - {fileID: 6033129217021443495}
   - {fileID: -3530228939498347143}
-  - {fileID: 1695691553744540250}
-  - {fileID: -2240558227069272559}
---- !u!114 &1695691553744540250
+  - {fileID: 3277993213751439623}
+--- !u!114 &3277993213751439623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,23 +112,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 62d0563c-d7a3-4640-aa77-0a63df5f2b28
+  m_Name: 24f7b87a-f958-4dbf-b111-8af121e2eb63
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Mate I was just here
+  text: I see you have a Sword
   children: []
   rect:
     serializedVersion: 2
-    x: 631
-    y: 455
+    x: 595
+    y: 529
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 1
+    predicate: 2
     paramaters:
-    - Quest1
+    - 0d185f59-a89a-4981-b131-d5046ccb688e
 --- !u!114 &5745394610849448376
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,17 +34,18 @@ namespace RPG.Dialogue
             var predicate = condition.GetPredicateName();
             if (predicate == PredicateTypes.HasQuest || predicate == PredicateTypes.CompletedQuest)
             {
-                var questNames = Resources.LoadAll<Quest>("").Select(quest => quest.name).ToList();
+                var questNames = Resources.LoadAll<Quest>("").ToList();
                 var condParameters = condition.GetParameteres();
 
                 int selectedIndex = 0;
                 if (condParameters.Count != 0)
                 {
-                    selectedIndex = questNames.IndexOf(condition.GetParameteres()[0]);
+                    selectedIndex = questNames.Select(quest => quest.name).ToList().IndexOf(condition.GetParameteres()[0]);
                     selectedIndex = selectedIndex == -1 ? 0 : selectedIndex;
-                }                
+                }
 
-                condition.SetHasQuest(questNames[EditorGUILayout.Popup("Quest Name", selectedIndex, questNames.ToArray())]);
+                var selectedOption = (Quest) EditorGUILayout.ObjectField("Quest", questNames[selectedIndex], typeof(Quest), false);
+                condition.SetHasQuest(selectedOption.name);
                 EditorUtility.SetDirty(targetNode);
             }
             
@@ -62,9 +63,8 @@ namespace RPG.Dialogue
                 }
 
                 EditorGUILayout.LabelField("Item name:", items[selectedIndex].GetDisplayName());
-
-                var predicateIndex = EditorGUILayout.Popup("Item ID", selectedIndex, items.Select(item => $"{item.GetItemID()} -> {item.GetDisplayName()}").ToArray());
-                condition.SetHasInventoryItem(items[predicateIndex].GetItemID());
+                var selectedItem = (InventoryItem) EditorGUILayout.ObjectField("Item required:", items[selectedIndex], typeof(InventoryItem), false);                
+                condition.SetHasInventoryItem(selectedItem.GetItemID());
                 EditorUtility.SetDirty(targetNode);
             }            
         }
