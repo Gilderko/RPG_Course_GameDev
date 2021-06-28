@@ -16,7 +16,6 @@ namespace RPG.Dialogue
     { 
         public override void OnInspectorGUI()
         {
-            //base.OnInspectorGUI();
             Debug.Log("running");
             var targetNode = (DialogueNode) target;
 
@@ -42,6 +41,7 @@ namespace RPG.Dialogue
                 if (condParameters.Count != 0)
                 {
                     selectedIndex = questNames.IndexOf(condition.GetParameteres()[0]);
+                    selectedIndex = selectedIndex == -1 ? 0 : selectedIndex;
                 }                
 
                 condition.SetHasQuest(questNames[EditorGUILayout.Popup("Quest Name", selectedIndex, questNames.ToArray())]);
@@ -58,6 +58,7 @@ namespace RPG.Dialogue
                 if (condParameters.Count != 0)
                 {
                     selectedIndex = itemIDs.IndexOf(condition.GetParameteres()[0]);
+                    selectedIndex = selectedIndex == -1 ? 0 : selectedIndex;
                 }
 
                 EditorGUILayout.LabelField("Item name:", items[selectedIndex].GetDisplayName());
@@ -65,8 +66,7 @@ namespace RPG.Dialogue
                 var predicateIndex = EditorGUILayout.Popup("Item ID", selectedIndex, items.Select(item => $"{item.GetItemID()} -> {item.GetDisplayName()}").ToArray());
                 condition.SetHasInventoryItem(items[predicateIndex].GetItemID());
                 EditorUtility.SetDirty(targetNode);
-            }
-            
+            }            
         }
     }
 }

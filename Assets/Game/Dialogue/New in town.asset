@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6037996484267146278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
+  m_Name: dd696be4-da53-4d68-ac70-f33559d2cdc8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 627
+    y: 898
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 2
+    paramaters:
+    - 980532ee-279d-4de0-9052-dc124147cdee
 --- !u!114 &-3096961769106784249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,33 +51,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 0
-    paramaters: []
---- !u!114 &-2461153795073865977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 60bb4bb6-74ab-4f52-b94e-b0868ee9c39c
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: I see you completed something
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 563
-    y: 1017
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    predicate: 1
+    predicate: 2
     paramaters:
     - Quest1
 --- !u!114 &-2239701410966413356
@@ -101,35 +102,7 @@ MonoBehaviour:
   - {fileID: 2834194554318075976}
   - {fileID: 6243633361193293823}
   - {fileID: 5563217828653888161}
-  - {fileID: 361826509992328158}
-  - {fileID: -2461153795073865977}
---- !u!114 &361826509992328158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526abdf23e0910641aa6c326ab786811, type: 3}
-  m_Name: 4424f4b1-f08c-4a94-9dea-123d7c2f54cf
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: I see you have a sword there
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 590
-    y: 882
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    predicate: 2
-    paramaters:
-    - 0d185f59-a89a-4981-b131-d5046ccb688e
+  - {fileID: -6037996484267146278}
 --- !u!114 &1072210673044296724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +255,7 @@ MonoBehaviour:
   - 328a0ca1-fb8f-45d7-b828-bad51182f9ec
   - 7c8a61ba-2e70-4ae0-9348-fd59afa24cff
   - 59c0b39d-c665-48b0-9f6e-8e841719df4d
-  - 4424f4b1-f08c-4a94-9dea-123d7c2f54cf
-  - 60bb4bb6-74ab-4f52-b94e-b0868ee9c39c
+  - dd696be4-da53-4d68-ac70-f33559d2cdc8
   rect:
     serializedVersion: 2
     x: 167
